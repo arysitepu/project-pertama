@@ -1,114 +1,102 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React, { Component, } from "react";
+import {Image, Text, TextInput, View, StyleSheet} from 'react-native';
+import macbook from './gambar/macbook.jpg';
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-/* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
- * LTI update could not be added via codemod */
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+  <StylingReactNativeComponent />
+  )
+}
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+const StylingReactNativeComponent = () => {
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-         <Text>Hello World</Text>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+    <View>
+      <Text style={styles.text}>Styling text component</Text>
+      <View style=
+        {{
+        width: 100, 
+        height:100, 
+        backgroundColor: '#0097e6', 
+        borderWidth:2,
+        borderColor: '#9c88ff',
+        marginTop: 20,
+        marginLeft: 20
+        }} />
+
+        <View style={{padding: 12, backgroundColor: '#F2F2F2', width: 212, borderRadius: 8}}>
+          <Image source={macbook} style={{width: 188, height: 107, borderRadius: 8}} />
+          <Text style={{fontSize: 14, fontWeight: 'bold', marginTop: 16}}>New Mekbuk pro 2080</Text>
+          <Text style={{fontSize: 14, fontWeight: 'bold', color: '#e84118', marginTop: 16}}>Rp. 1000.000.000</Text>
+          <Text style={{fontSize: 12, fontWeight: '300', color: '#487eb0', marginTop: 12}}>Jakarta Pusat</Text>
+
+          <View style=
+          {{
+            backgroundColor: '#4cd137', 
+            paddingVertical: 6, 
+            borderRadius: 250,
+            marginTop: 20
+            }}>
+            <Text style=
+            {{
+              fontSize: 14, 
+              fontWeight: '600', 
+              color: 'white', 
+              textAlign: 'center'
+            }}>Beli</Text>
+          </View>
         </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+    </View>  
+  )
+}
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+  text: {
+    fontSize:18,
+    fontWeight: 'bold',
+    color: '#4cd137',
+    marginLeft: 20,
+    marginTop: 40
+  }
+})
 
+const SampleComponent = () => {
+  return (
+    <View>
+    <View style={{width: 80, height: 80, backgroundColor: '#0097e6'}} />
+    <Text>Anto</Text>
+    <Text>Laban</Text>
+    <Text>Lele</Text>
+    <Lindun />
+    <Photo /> 
+    <TextInput style={{borderWidth:1}} />
+    <BoxGreen />
+    <Profile />
+  </View>
+  )
+}
+
+const Lindun = () => {
+  return <Text>Lindun Jual Ikan lele</Text>
+}
+
+const Photo = () => {
+  return <Image source={{uri: 'https://placeimg.com/100/100/any'}} style={{width: 100, height: 100}} />
+}
+
+class BoxGreen extends Component{
+  render(){
+    return <Text>Ini komponen dari class</Text>
+  }
+}
+
+class Profile extends Component{
+  render(){
+    return(
+      <View>
+        <Image source={{uri: 'https://placeimg.com/100/100/animals'}} style={{width: 100, height: 100, borderRadius: 50}}/>
+        <Text style={{color: 'blue', fontSize: 24}}>Ini Hewan</Text>
+      </View>
+    ) 
+  }
+}
 export default App;
